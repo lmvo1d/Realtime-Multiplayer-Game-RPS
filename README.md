@@ -1,109 +1,70 @@
-# Multiplayer Rock-Paper-Scissors (Python)
+# Real-Time Multiplayer Game
 
-A simple and fun **multiplayer Rock-Paper-Scissors game** built in Python using sockets. One player hosts the server and others can join as clients using the host's IP address.
+## Overview
+This project is a real-time multiplayer game built to explore **game programming fundamentals**, **event-driven systems**, and **networked gameplay synchronization**.
 
----
-
-## 🚀 Features
-
-* Multiplayer gameplay over LAN
-* Simple client-server architecture
-* Real-time communication using Python sockets
-* Lightweight and easy to run
+The primary focus of this project is not the game concept itself, but the **engineering challenges involved in real-time interactive systems**, including input handling, deterministic state updates, and client–server communication.
 
 ---
 
-## 📂 Project Structure
-
-```
-project-folder/
-│
-├── server.py
-├── client.py
-├── config.py
-└── README.md
-```
+## Core Engineering Goals
+- Design a stable **game loop** with consistent frame updates
+- Implement **deterministic gameplay logic** across multiple clients
+- Handle **real-time input** and synchronize game state
+- Explore **network latency considerations** in multiplayer environments
 
 ---
 
-## ⚙️ Setup Instructions
+## Technical Design
 
-Follow the steps below to run the game:
+### Architecture
+- Client–server model using socket-based communication
+- Server maintains authoritative game state
+- Clients send input events and render synchronized state updates
 
-### **1. Get Your IP Address**
+### Game Loop
+- Fixed timestep update loop for consistent behavior
+- Separation of input processing, game logic, and rendering
+- Deterministic outcome logic to avoid desynchronization
 
-On the machine running the server:
-
-* Open **Command Prompt**
-* Run:
-
-  ```bash
-  ipconfig
-  ```
-* Copy the **IPv4 Address** (e.g., `192.168.1.5`)
-
-### **2. Update the Config File**
-
-Edit `config.py` and set the server IP address:
-
-```python
-SERVER_IP = "your_ipv4_here"
-PORT = 5050  # or whichever port you choose
-```
-
-Make sure both server and clients use the same config.
-
-### **3. Start the Server**
-
-On the host machine:
-
-```bash
-python server.py
-```
-
-The server will start listening for client connections.
-
-### **4. Start the Client(s)**
-
-On each player’s machine:
-
-```bash
-python client.py
-```
-
-The game will connect to the server using the IP set in `config.py`.
+### Networking
+- Lightweight message protocol for input and state updates
+- Basic latency-tolerant synchronization strategy
+- Stateless client rendering with server-driven state
 
 ---
 
-## 🎮 How to Play
-
-1. The server waits for players to join.
-2. Each client enters their move (Rock, Paper, or Scissors).
-3. The server compares moves and displays the result to all players.
-4. Play continues until players exit.
-
----
-
-## 📝 Requirements
-
-* Python 3.8+
-
-Install dependencies (if any):
-
-```bash
-pip install -r requirements.txt
-```
-
-(If your project doesn't use external libraries, you can remove this section.)
+## Systems & Performance Considerations
+- Event-driven input handling
+- Performance-aware update cycles
+- Clear separation of simulation logic and rendering logic
+- Designed to be extensible for additional gameplay mechanics
 
 ---
 
-## 🤝 Contributing
-
-Feel free to open issues or submit pull requests to improve the game.
+## Technologies Used
+- **Language:** Python
+- **Game Library:** Pygame
+- **Networking:** Socket programming
+- **Environment:** Cross-platform desktop
 
 ---
 
-## 📜 License
+## Learning Outcomes
+- Practical understanding of **real-time game systems**
+- Experience designing **networked interactive applications**
+- Improved reasoning about **state consistency and synchronization**
+- Stronger foundation in **event-driven and performance-sensitive programming**
 
-This project is licensed under the MIT License (or whichever license you choose).
+---
+
+## Future Improvements
+- Client-side prediction and reconciliation
+- Interpolation for smoother state updates
+- Improved network protocol design
+- Modular gameplay systems
+
+---
+
+## Ethical & Usage Notice
+This project is intended for **educational and engineering learning purposes only**.
